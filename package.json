@@ -1,0 +1,28 @@
+{
+  "name": "cv",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "buildpdf": "electron-pdf $PWD/index.html benedikt_viebahn_cv.pdf",
+    "pdf:add": "git add benedikt_viebahn_cv.pdf"
+  },
+  "pre-commit": [
+    "buildpdf",
+    "pdf:add"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bviebahn/cv.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bviebahn/cv/issues"
+  },
+  "homepage": "https://github.com/bviebahn/cv#readme",
+  "devDependencies": {
+    "electron-pdf": "^15.0.0",
+    "pre-commit": "^1.2.2"
+  }
+}
