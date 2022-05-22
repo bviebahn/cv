@@ -5,19 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Benedikt Viebahn - CV</title>
-
-    <script src="html2pdf.bundle.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Overpass&display=swap"
+      rel="stylesheet"
+    />
     <style>
       :root {
         --text-primary-color: #1e1e1e;
         --text-secondary-color: #3f3f3f;
         --very-peri: #5f62a1;
-        --a4-paper-width: 21cm;
       }
       body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-          "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
-          "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        font-family: "Overpass", sans-serif;
         line-height: 1.4;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
@@ -34,7 +35,7 @@
         fill: #000;
       }
       .content-wrapper {
-        max-width: var(--a4-paper-width);
+        max-width: 992px;
         background-color: #fff;
       }
       .content {
@@ -169,7 +170,7 @@
         font-weight: 400;
         color: var(--text-secondary-color);
       }
-      @media (min-width: 210mm) {
+      @media only print, only screen and (min-width: 768px) {
         .contact-info {
           grid-column: 2;
           justify-self: flex-start;
@@ -199,7 +200,7 @@
           padding: 30px 0;
         }
       }
-      @media (min-width: 215mm) {
+      @media only screen and (min-width: 992px) {
         .content-wrapper {
           margin: 50px auto;
           border-radius: 10px;
@@ -221,7 +222,7 @@
           <defs>
             <linearGradient id="b" x1="0%" y1="0%" x2="100%" y2="0%">
               <stop offset="0%" style="stop-color: #5f62a1" />
-              <stop offset="50%" style="stop-color: #00ff0030" />
+              <stop offset="50%" style="stop-color: #25cf7a" />
               <stop offset="100%" style="stop-color: #ff000030" />
             </linearGradient>
             <linearGradient id="a" y1="1" x2="0">
@@ -319,13 +320,13 @@
         <div class="section-content">
           <section class="section-entry">
             <h3>
-              Bachelor in Angewandte Informatik, Hochschule für Technik und
+              B.Sc., Angewandte Informatik, Hochschule für Technik und
               Wirtschaft Berlin
             </h3>
             <span>October 2017 - April 2022</span>
           </section>
           <section class="section-entry">
-            <h3>Humboldt-Universität zu Berlin</h3>
+            <h3>Kein Abschluss, Informatik, Humboldt-Universität zu Berlin</h3>
             <span>October 2014 - October 2017</span>
           </section>
           <section class="section-entry">
