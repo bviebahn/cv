@@ -28,7 +28,7 @@ function translateTemplate(lang) {
       index + expression.length + 3
     )}`;
 
-    regexp.lastIndex = 0;
+    regexp.lastIndex = index;
     match = regexp.exec(translatedTemplate);
   }
 
