@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "buildpdf": "electron-pdf $PWD/index.html benedikt_viebahn_cv.pdf",
-    "pdf:add": "git add benedikt_viebahn_cv.pdf"
+    "pdf:add": "git add benedikt_viebahn_cv.pdf",
+    "build": "node build.js"
   },
   "pre-commit": [
     "buildpdf",

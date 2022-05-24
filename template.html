@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="${this.lang}">
 
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Benedikt Viebahn - Lebenslauf</title>
+  <title>${this.DOCUMENT_TITLE}</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Overpass&display=swap" rel="stylesheet" />
@@ -336,7 +336,7 @@
   <div class="content-wrapper">
     <section class="content">
       <div class="top-row">
-        <img class="avatar" src="../assets/avatar.png" alt="Benedikt Viebahn Profilbild" />
+        <img class="avatar" src="${this.ASSETS_PATH}/avatar.png" alt="Benedikt Viebahn Profilbild" />
         <div class="top-row-links">
           <div class="contact-info">
             <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -363,62 +363,62 @@
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                 <path
                   d="M352 256C352 278.2 350.8 299.6 348.7 320H163.3C161.2 299.6 159.1 278.2 159.1 256C159.1 233.8 161.2 212.4 163.3 192H348.7C350.8 212.4 352 233.8 352 256zM503.9 192C509.2 212.5 512 233.9 512 256C512 278.1 509.2 299.5 503.9 320H380.8C382.9 299.4 384 277.1 384 256C384 234 382.9 212.6 380.8 192H503.9zM493.4 160H376.7C366.7 96.14 346.9 42.62 321.4 8.442C399.8 29.09 463.4 85.94 493.4 160zM344.3 160H167.7C173.8 123.6 183.2 91.38 194.7 65.35C205.2 41.74 216.9 24.61 228.2 13.81C239.4 3.178 248.7 0 256 0C263.3 0 272.6 3.178 283.8 13.81C295.1 24.61 306.8 41.74 317.3 65.35C328.8 91.38 338.2 123.6 344.3 160H344.3zM18.61 160C48.59 85.94 112.2 29.09 190.6 8.442C165.1 42.62 145.3 96.14 135.3 160H18.61zM131.2 192C129.1 212.6 127.1 234 127.1 256C127.1 277.1 129.1 299.4 131.2 320H8.065C2.8 299.5 0 278.1 0 256C0 233.9 2.8 212.5 8.065 192H131.2zM194.7 446.6C183.2 420.6 173.8 388.4 167.7 352H344.3C338.2 388.4 328.8 420.6 317.3 446.6C306.8 470.3 295.1 487.4 283.8 498.2C272.6 508.8 263.3 512 255.1 512C248.7 512 239.4 508.8 228.2 498.2C216.9 487.4 205.2 470.3 194.7 446.6H194.7zM190.6 503.6C112.2 482.9 48.59 426.1 18.61 352H135.3C145.3 415.9 165.1 469.4 190.6 503.6V503.6zM321.4 503.6C346.9 469.4 366.7 415.9 376.7 352H493.4C463.4 426.1 399.8 482.9 321.4 503.6V503.6z" />
-              </svg>Webversion</a>
+              </svg>${this.WEB_VERSION}</a>
           </div>
           <div class="language-selector">
-            <a href="/" class=""><img src="../assets/flag-uk.png" /></a>
-            <a href="/de" class="selected"><img src="../assets/flag-germany.png" /></a>
+            <a href="/" class="${this.lang === 'en' ? 'selected' : ''}"><img src="${this.ASSETS_PATH}/flag-uk.png" /></a>
+            <a href="/de" class="${this.lang === 'de' ? 'selected' : ''}"><img src="${this.ASSETS_PATH}/flag-germany.png" /></a>
           </div>
         </div>
       </div>
       <section class="summary">
-        <h2>Benedikt Viebahn, Frontend Engineer</h2>
-        <p>TODO: Passionate about developing high quality, responsive web- and mobile applications using modern technologies like React/React Native, TypeScript, GraphQL and more. Dedicated to writing clean, testable and maintainable code. Eager to create a great product that helps the environment and combats climate change.</p>
+        <h2>${this.SUMMARY_TITLE}</h2>
+        <p>${this.SUMMARY}</p>
       </section>
       <span class="section-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
           <path
             d="M320 336c0 8.844-7.156 16-16 16h-96C199.2 352 192 344.8 192 336V288H0v144C0 457.6 22.41 480 48 480h416c25.59 0 48-22.41 48-48V288h-192V336zM464 96H384V48C384 22.41 361.6 0 336 0h-160C150.4 0 128 22.41 128 48V96H48C22.41 96 0 118.4 0 144V256h512V144C512 118.4 489.6 96 464 96zM336 96h-160V48h160V96z" />
-        </svg>Berufserfahrung</span>
+        </svg>${this.EMPLOYMENT_HISTORY}</span>
       <div class="section-content">
         <section class="section-entry">
-          <h3>Software Engineer bei Bringmeister GmbH, Berlin</h3>
-          <span>Oktober 2017 - Heute</span>
-          <p>Bei Bringmeister habe ich in einem SCRUM Team an Web- und Cross-Platform Anwendungen gearbeitet. In den letzten Jahren habe ich mich hauptsächlich auf die Entwicklung mobiler Anwendungen mit React Native fokussiert. Meine Aufgaben bei Bringmeister beinhalteten:</p>
+          <h3>${this.BRINGMEISTER_TITLE}</h3>
+          <span>${this.BRINGMEISTER_TIMESPAN}</span>
+          <p>${this.BRINGMEISTER_DESCRIPTION}</p>
           <ul>
-            <li>Beitragen zur Entwicklung neuer Featurers, von der Konzeptionierung bis zur Implementierung</li>
-            <li>Wartung und Optimierung von mobilen Anwendungen</li>
-            <li>Entwicklung von Unit- und End-to-End Tests</li>
-            <li>Automatisierung des Deployments mobiler Anwendungen</li>
+            <li>${this.BRINGMEISTER_DESCRIPTION_POINT_1}</li>
+            <li>${this.BRINGMEISTER_DESCRIPTION_POINT_2}</li>
+            <li>${this.BRINGMEISTER_DESCRIPTION_POINT_3}</li>
+            <li>${this.BRINGMEISTER_DESCRIPTION_POINT_4}</li>
           </ul>
         </section>
         <section class="section-entry">
-          <h3>Werkstudent Software Engineer bei Dental Wings GmbH, Berlin</h3>
-          <span>Januar 2016 - Juli 2017</span>
-          <p>Während meiner Studienzeit an der Humboldt-Universität zu Berlin habe ich bei Dental Wings an einer komplexen Java Anwendung für Zahntechniker gearbeitet.</p>
+          <h3>${this.DENTAL_WINGS_TITLE}</h3>
+          <span>${this.DENTAL_WINGS_TIMESPAN}</span>
+          <p>${this.DENTAL_WINGS_DESCRIPTION}</p>
         </section>
       </div>
       <span class="section-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
           <path
             d="M623.1 136.9l-282.7-101.2c-13.73-4.91-28.7-4.91-42.43 0L16.05 136.9C6.438 140.4 0 149.6 0 160s6.438 19.65 16.05 23.09L76.07 204.6c-11.89 15.8-20.26 34.16-24.55 53.95C40.05 263.4 32 274.8 32 288c0 9.953 4.814 18.49 11.94 24.36l-24.83 149C17.48 471.1 25 480 34.89 480H93.11c9.887 0 17.41-8.879 15.78-18.63l-24.83-149C91.19 306.5 96 297.1 96 288c0-10.29-5.174-19.03-12.72-24.89c4.252-17.76 12.88-33.82 24.94-47.03l190.6 68.23c13.73 4.91 28.7 4.91 42.43 0l282.7-101.2C633.6 179.6 640 170.4 640 160S633.6 140.4 623.1 136.9zM351.1 314.4C341.7 318.1 330.9 320 320 320c-10.92 0-21.69-1.867-32-5.555L142.8 262.5L128 405.3C128 446.6 213.1 480 320 480c105.1 0 192-33.4 192-74.67l-14.78-142.9L351.1 314.4z" />
-        </svg>Ausbildung</span>
+        </svg>${this.EDUCATION}</span>
       <div class="section-content education-content">
         <section class="section-entry">
-          <h3>B.Sc., Angewandte Informatik, Hochschule für Technik und Wirtschaft Berlin</h3>
-          <span>Oktober 2017 - April 2022</span>
+          <h3>${this.HTW_TITLE}</h3>
+          <span>${this.HTW_TIMESPAN}</span>
         </section>
         <section class="section-entry">
-          <h3>Kein Abschluss, Informatik, Humboldt-Universität zu Berlin</h3>
-          <span>Oktober 2014 - Oktober 2017</span>
+          <h3>${this.HUMBOLDT_TITLE}</h3>
+          <span>${this.HUMBOLDT_TIMESPAN}</span>
         </section>
         <section class="section-entry">
-          <h3>Abitur, Kaufmännisches Berufskolleg Oberberg</h3>
-          <span>2011 - 2014</span>
+          <h3>${this.ABITUR_TITLE}</h3>
+          <span>${this.ABITUR_TIMESPAN}</span>
         </section>
       </div>
       <span class="section-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
           <path
             d="M172.5 131.1C228.1 75.51 320.5 75.51 376.1 131.1C426.1 181.1 433.5 260.8 392.4 318.3L391.3 319.9C381 334.2 361 337.6 346.7 327.3C332.3 317 328.9 297 339.2 282.7L340.3 281.1C363.2 249 359.6 205.1 331.7 177.2C300.3 145.8 249.2 145.8 217.7 177.2L105.5 289.5C73.99 320.1 73.99 372 105.5 403.5C133.3 431.4 177.3 435 209.3 412.1L210.9 410.1C225.3 400.7 245.3 404 255.5 418.4C265.8 432.8 262.5 452.8 248.1 463.1L246.5 464.2C188.1 505.3 110.2 498.7 60.21 448.8C3.741 392.3 3.741 300.7 60.21 244.3L172.5 131.1zM467.5 380C411 436.5 319.5 436.5 263 380C213 330 206.5 251.2 247.6 193.7L248.7 192.1C258.1 177.8 278.1 174.4 293.3 184.7C307.7 194.1 311.1 214.1 300.8 229.3L299.7 230.9C276.8 262.1 280.4 306.9 308.3 334.8C339.7 366.2 390.8 366.2 422.3 334.8L534.5 222.5C566 191 566 139.1 534.5 108.5C506.7 80.63 462.7 76.99 430.7 99.9L429.1 101C414.7 111.3 394.7 107.1 384.5 93.58C374.2 79.2 377.5 59.21 391.9 48.94L393.5 47.82C451 6.731 529.8 13.25 579.8 63.24C636.3 119.7 636.3 211.3 579.8 267.7L467.5 380z" />
-        </svg>Links</span>
+        </svg>${this.LINKS}</span>
       <ul class="section-content grid">
         <li>
           <a class="link" href="https://github.com/bviebahn" target="_blank">
@@ -431,7 +431,7 @@
       <span class="section-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
           <path
             d="M414.8 40.79L286.8 488.8C281.9 505.8 264.2 515.6 247.2 510.8C230.2 505.9 220.4 488.2 225.2 471.2L353.2 23.21C358.1 6.216 375.8-3.624 392.8 1.232C409.8 6.087 419.6 23.8 414.8 40.79H414.8zM518.6 121.4L630.6 233.4C643.1 245.9 643.1 266.1 630.6 278.6L518.6 390.6C506.1 403.1 485.9 403.1 473.4 390.6C460.9 378.1 460.9 357.9 473.4 345.4L562.7 256L473.4 166.6C460.9 154.1 460.9 133.9 473.4 121.4C485.9 108.9 506.1 108.9 518.6 121.4V121.4zM166.6 166.6L77.25 256L166.6 345.4C179.1 357.9 179.1 378.1 166.6 390.6C154.1 403.1 133.9 403.1 121.4 390.6L9.372 278.6C-3.124 266.1-3.124 245.9 9.372 233.4L121.4 121.4C133.9 108.9 154.1 108.9 166.6 121.4C179.1 133.9 179.1 154.1 166.6 166.6V166.6z" />
-        </svg>Skills</span>
+        </svg>${this.SKILLS}</span>
       <ul class="section-content grid">
         <li>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 630 630">
@@ -515,14 +515,14 @@
       <span class="section-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
           <path
             d="M448 164C459 164 468 172.1 468 184V188H528C539 188 548 196.1 548 208C548 219 539 228 528 228H526L524.4 232.5C515.5 256.1 501.9 279.1 484.7 297.9C485.6 298.4 486.5 298.1 487.4 299.5L506.3 310.8C515.8 316.5 518.8 328.8 513.1 338.3C507.5 347.8 495.2 350.8 485.7 345.1L466.8 333.8C462.4 331.1 457.1 328.3 453.7 325.3C443.2 332.8 431.8 339.3 419.8 344.7L416.1 346.3C406 350.8 394.2 346.2 389.7 336.1C385.2 326 389.8 314.2 399.9 309.7L403.5 308.1C409.9 305.2 416.1 301.1 422 298.3L409.9 286.1C402 278.3 402 265.7 409.9 257.9C417.7 250 430.3 250 438.1 257.9L452.7 272.4L453.3 272.1C465.7 259.9 475.8 244.7 483.1 227.1H376C364.1 227.1 356 219 356 207.1C356 196.1 364.1 187.1 376 187.1H428V183.1C428 172.1 436.1 163.1 448 163.1L448 164zM160 233.2L179 276H140.1L160 233.2zM0 128C0 92.65 28.65 64 64 64H576C611.3 64 640 92.65 640 128V384C640 419.3 611.3 448 576 448H64C28.65 448 0 419.3 0 384V128zM320 384H576V128H320V384zM178.3 175.9C175.1 168.7 167.9 164 160 164C152.1 164 144.9 168.7 141.7 175.9L77.72 319.9C73.24 329.1 77.78 341.8 87.88 346.3C97.97 350.8 109.8 346.2 114.3 336.1L123.2 315.1H196.8L205.7 336.1C210.2 346.2 222 350.8 232.1 346.3C242.2 341.8 246.8 329.1 242.3 319.9L178.3 175.9z" />
-        </svg>Sprachen</span>
+        </svg>${this.LANGUAGES}</span>
       <ul class="section-content grid">
         <li>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="80 80 240 240">
             <circle cx="200" cy="200" r="120" fill="#222" />
             <circle cx="200" cy="200" r="80" fill="#fff" />
           </svg>
-          <span>Deutsch <span class="language-level">Muttersprache</span></span>
+          <span>${this.LANGUAGE_GERMAN} <span class="language-level">${this.LANGUAGE_SKILL_NATIVE}</span></span>
         </li>
         <li>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="80 80 240 240">
@@ -531,7 +531,7 @@
             <path d="M 200 100 A 100 100 270 1 1 100 200" fill="none" stroke="#222" stroke-width="40"
               stroke-linecap="round" />
           </svg>
-          <span>Englisch <span class="language-level">Verhandlungssicher</span></span>
+          <span>${this.LANGUAGE_ENGLISH} <span class="language-level">${this.LANGUAGE_SKILL_HIGHLY_PROFICIENT}</span></span>
         </li>
       </ul>
     </section>
