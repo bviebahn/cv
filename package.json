@@ -4,13 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "buildpdf": "electron-pdf $PWD/index.html benedikt_viebahn_cv.pdf",
-    "pdf:add": "git add benedikt_viebahn_cv.pdf",
-    "build": "node build.js"
+    "build:page": "node build.js",
+    "build:pdf": "electron-pdf $PWD/index.html assets/benedikt_viebahn_cv_en.pdf && electron-pdf $PWD/de/index.html assets/benedikt_viebahn_cv_de.pdf",
+    "git:add": "git add index.html de/index.html assets/benedikt_viebahn_cv_en.pdf assets/benedikt_viebahn_cv_de.pdf"
   },
   "pre-commit": [
-    "buildpdf",
-    "pdf:add"
+    "build:page",
+    "build:pdf",
+    "git:add"
   ],
   "repository": {
     "type": "git",
