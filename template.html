@@ -47,18 +47,6 @@
       padding: 20px;
     }
 
-    .background {
-      position: relative;
-      pointer-events: none;
-    }
-
-    .background>svg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-    }
-
     .avatar {
       width: 100px;
       height: 100px;
@@ -333,7 +321,7 @@
   <div class="content-wrapper">
     <section class="content">
       <div class="top-row">
-        <img class="avatar" src="${this.ASSETS_PATH}/avatar.png" alt="${this.AVATAR_ALT}" />
+        <img class="avatar" src="${this.ASSETS_PATH}/avatar.webp" alt="${this.AVATAR_ALT}" />
         <div class="top-row-links">
           <div class="contact-info">
             <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -371,10 +359,10 @@
           </div>
           <div class="language-selector">
             <a href="/cv" class="${this.lang === 'en' ? 'selected' : ''}"
-              title="${this.ENGLISH_LANGUAGE_LINK_TITLE}"><img src="${this.ASSETS_PATH}/flag-uk.png"
+              title="${this.ENGLISH_LANGUAGE_LINK_TITLE}"><img src="${this.ASSETS_PATH}/flag-uk.webp"
                 alt="${this.ENGLISH_LANGUAGE_LINK_TITLE}" /></a>
             <a href="/cv/de" class="${this.lang === 'de' ? 'selected' : ''}"
-              title="${this.GERMAN_LANGUAGE_LINK_TITLE}"><img src="${this.ASSETS_PATH}/flag-germany.png"
+              title="${this.GERMAN_LANGUAGE_LINK_TITLE}"><img src="${this.ASSETS_PATH}/flag-germany.webp"
                 alt="${this.GERMAN_LANGUAGE_LINK_TITLE}" /></a>
           </div>
         </div>
