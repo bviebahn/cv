@@ -112,8 +112,8 @@
     }
 
     body .online-version-link>svg {
-      width: 24px;
-      height: 24px;
+      width: 20px;
+      height: 20px;
     }
 
     .language-selector {
@@ -198,7 +198,7 @@
       display: flex;
     }
 
-    ul.section-content>li>svg {
+    ul.section-content>li>.icon {
       width: 24px;
       height: 24px;
       margin-right: 10px;
@@ -422,7 +422,7 @@
       <ul class="section-content grid">
         <li>
           <a class="link" href="https://github.com/bviebahn" target="_blank" title="${this.GITHUB_PROFILE_LINK_TITLE}">
-            <svg viewBox="0 0 1024 1024" fill="#1B1F23" xmlns="http://www.w3.org/2000/svg">
+            <svg class="icon" viewBox="0 0 1024 1024" fill="#1B1F23" xmlns="http://www.w3.org/2000/svg">
               <title>GitHub</title>
               <path fill-rule="evenodd" clip-rule="evenodd"
                 d="M512 0C229.12 0 0 229.12 0 512c0 226.56 146.56 417.92 350.08 485.76 25.6 4.48 35.2-10.88 35.2-24.32 0-12.16-.64-52.48-.64-95.36-128.64 23.68-161.92-31.36-172.16-60.16-5.76-14.72-30.72-60.16-52.48-72.32-17.92-9.6-43.52-33.28-.64-33.92 40.32-.64 69.12 37.12 78.72 52.48 46.08 77.44 119.68 55.68 149.12 42.24 4.48-33.28 17.92-55.68 32.64-68.48-113.92-12.8-232.96-56.96-232.96-252.8 0-55.68 19.84-101.76 52.48-137.6-5.12-12.8-23.04-65.28 5.12-135.68 0 0 42.88-13.44 140.8 52.48 40.96-11.52 84.48-17.28 128-17.28 43.52 0 87.04 5.76 128 17.28 97.92-66.56 140.8-52.48 140.8-52.48 28.16 70.4 10.24 122.88 5.12 135.68 32.64 35.84 52.48 81.28 52.48 137.6 0 196.48-119.68 240-233.6 252.8 18.56 16 34.56 46.72 34.56 94.72 0 68.48-.64 123.52-.64 140.8 0 13.44 9.6 29.44 35.2 24.32C877.44 929.92 1024 737.92 1024 512 1024 229.12 794.88 0 512 0Z" />
@@ -431,9 +431,9 @@
         <li>
           <a class="link" href="https://apps.apple.com/de/app/bringmeister-online-supermarkt/id1436032857"
             target="_blank" title="Bringmeister App (App Store)">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" xml:space="preserve">
-              <linearGradient id="app-store-gradient" gradientUnits="userSpaceOnUse" x1="400.05" y1="798.772" x2="400.05" y2="-1.228"
-                gradientTransform="matrix(1 0 0 -1 0 798.772)">
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" xml:space="preserve">
+              <linearGradient id="app-store-gradient" gradientUnits="userSpaceOnUse" x1="400.05" y1="798.772"
+                x2="400.05" y2="-1.228" gradientTransform="matrix(1 0 0 -1 0 798.772)">
                 <stop offset="0" style="stop-color:#18bffb" />
                 <stop offset="1" style="stop-color:#2072f3" />
               </linearGradient>
@@ -446,7 +446,7 @@
         <li>
           <a class="link" href="https://play.google.com/store/apps/details?id=de.bringmeister.app" target="_blank"
             title="Bringmeister App (Play Store)">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1903.7 1903.7">
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1903.7 1903.7">
               <linearGradient id="a" x1="2891" x2="2784.4" y1="1504.5" y2="1449.5"
                 gradientTransform="matrix(11.64 0 0 -22.55 -32777 34043)" gradientUnits="userSpaceOnUse">
                 <stop offset="0" stop-color="#00A0FF" />
@@ -506,7 +506,7 @@
         </svg>${this.SKILLS}</span>
       <ul class="section-content grid">
         <li>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 630 630">
+          <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 630 630">
             <title>JavaScript Logo</title>
             <path fill="#f7df1e" d="M0 0h630v630H0z" />
             <path
@@ -514,7 +514,8 @@
           </svg>JavaScript
         </li>
         <li>
-          <svg width="512" height="512" fill="none" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+          <svg class="icon" width="512" height="512" fill="none" viewBox="0 0 512 512"
+            xmlns="http://www.w3.org/2000/svg">
             <title>TypeScript Logo</title>
             <rect width="512" height="512" rx="50" fill="#3178c6" />
             <path
@@ -523,7 +524,7 @@
           </svg>TypeScript
         </li>
         <li>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="-11.5 -10.232 23 20.463">
+          <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="-11.5 -10.232 23 20.463">
             <title>React Logo</title>
             <circle r="2.05" fill="#61dafb" />
             <g stroke="#61dafb" fill="none">
@@ -534,7 +535,7 @@
           </svg>React
         </li>
         <li>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="-11.5 -10.232 23 20.463">
+          <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="-11.5 -10.232 23 20.463">
             <title>React Logo</title>
             <circle r="2.05" fill="#61dafb" />
             <g stroke="#61dafb" fill="none">
@@ -545,14 +546,14 @@
           </svg>React Native
         </li>
         <li>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 114 114">
+          <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 114 114">
             <title>Git Logo</title>
             <path fill="#f05133"
               d="M111.78 51.977 62.035 2.238a7.335 7.335 0 0 0-10.374 0l-10.329 10.33L54.434 25.67c3.046-1.028 6.537-.339 8.964 2.089a8.72 8.72 0 0 1 2.07 9.019l12.628 12.628c3.055-1.053 6.58-.373 9.02 2.071a8.726 8.726 0 0 1 0 12.345 8.73 8.73 0 0 1-14.25-9.494L61.09 42.551v30.991a8.805 8.805 0 0 1 2.308 1.65c3.41 3.41 3.41 8.934 0 12.349-3.41 3.409-8.938 3.409-12.345 0-3.41-3.415-3.41-8.939 0-12.348a8.736 8.736 0 0 1 2.859-1.905V42.01a8.614 8.614 0 0 1-2.86-1.905 8.728 8.728 0 0 1-1.88-9.544L36.255 17.642 2.15 51.747a7.339 7.339 0 0 0 0 10.378l49.742 49.74a7.338 7.338 0 0 0 10.376 0L111.78 62.36a7.341 7.341 0 0 0 0-10.379" />
           </svg>Git
         </li>
         <li>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" xml:space="preserve">
+          <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" xml:space="preserve">
             <title>GraphQL Logo</title>
             <path fill="#E535AB" d="m57.468 302.665-14.376-8.3 160.15-277.388 14.376 8.3z" />
             <path fill="#E535AB" d="M39.8 272.2h320.3v16.6H39.8z" />
@@ -569,7 +570,7 @@
           GraphQL
         </li>
         <li>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 66">
+          <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 66">
             <title>Jest Logo</title>
             <path
               d="M56.453 31.518c0-3.854-2.65-7.097-6.207-8.023L58.214 0H18.717l7.986 23.57c-3.446 1-5.985 4.188-5.985 7.968 0 2.78 1.4 5.244 3.502 6.763a22.092 22.092 0 0 1-2.89 3.317c-2.057 1.927-4.336 3.4-6.8 4.4-2.224-1.5-3.187-4.15-2.316-6.522a8.29 8.29 0 0 0 5.855-7.93c0-4.577-3.724-8.283-8.283-8.283-4.577 0-8.3 3.724-8.3 8.3a8.24 8.24 0 0 0 2.409 5.818l-.4.797c-1.24 2.557-2.65 5.448-3.187 8.7-1.075 6.485.686 11.692 4.93 14.638 2.4 1.65 5.02 2.483 7.856 2.483 4.873 0 9.82-2.446 14.6-4.818 3.4-1.686 6.93-3.446 10.395-4.3 1.28-.315 2.613-.5 4.02-.704 2.854-.408 5.8-.834 8.45-2.372 3.094-1.797 5.207-4.8 5.818-8.246.463-2.65 0-5.318-1.186-7.653a8.265 8.265 0 0 0 1.24-4.4zm-3.613 0c0 2.576-2.094 4.67-4.67 4.67s-4.67-2.094-4.67-4.67a4.81 4.81 0 0 1 .6-2.316 5.05 5.05 0 0 1 .52-.74c.193-.227.411-.432.649-.611l.02-.02.482-.334s.02 0 .02-.02c.074-.037.148-.093.222-.13.02 0 .037-.02.056-.02.074-.037.167-.074.26-.1a3.49 3.49 0 0 0 .26-.11c.02 0 .037-.02.056-.02.074-.02.148-.056.222-.074.02 0 .056-.02.074-.02l.26-.056h.02l.278-.056c.02 0 .056 0 .074-.02.074 0 .148-.02.222-.02h.093c.093 0 .185-.02.296-.02h.24a.76.76 0 0 1 .204.019h.037c.148.02.296.037.445.074a4.71 4.71 0 0 1 3.724 4.595zM23.897 3.706h29.147l-6.7 19.734a7.263 7.263 0 0 0-.834.24L38.47 9.32l-7.06 14.268c-.278-.093-.574-.148-.87-.204zm13.248 26.2a8.22 8.22 0 0 0-2.5-4.447l3.836-7.745 3.873 7.912a8.37 8.37 0 0 0-2.316 4.28zm-9.283-2.928.26-.056h.056c.074-.02.148-.02.222-.037h.074c.074 0 .13-.02.204-.02h.723c.074 0 .13.02.185.02.037 0 .056 0 .093.02.074.02.13.02.204.037.02 0 .037 0 .074.02l.26.056c.093.02.167.037.24.074.02 0 .037.02.074.02.056.02.13.037.185.074.02 0 .037.02.056.02.074.037.148.056.222.093h.02a1 1 0 0 1 .241.13c.093.037.167.093.24.13.02 0 .02.02.037.02.074.037.13.093.204.13l.02.02c.222.167.426.352.63.537l.02.02c.185.204.37.426.52.667a4.66 4.66 0 0 1 .76 2.557c0 2.576-2.094 4.67-4.67 4.67s-4.67-2.094-4.67-4.67c-.02-2.168 1.482-4.002 3.52-4.52zm-18.233-.13c2.576 0 4.67 2.094 4.67 4.67s-2.094 4.67-4.67 4.67-4.67-2.094-4.67-4.67 2.094-4.67 4.67-4.67zm43.1 16.065c-.408 2.372-1.87 4.447-4.02 5.688-2.02 1.167-4.503 1.538-7.115 1.9-1.427.204-2.928.426-4.373.778-3.854.945-7.56 2.798-11.155 4.577-4.595 2.28-8.93 4.428-12.952 4.428-2.094 0-3.965-.593-5.744-1.834-4.076-2.816-3.873-8.097-3.4-10.988.445-2.705 1.686-5.244 2.872-7.67.074-.148.13-.278.204-.426.415.15.844.262 1.28.334-.704 3.928 1.297 7.986 5.188 9.987l.704.37.76-.278c3.243-1.15 6.244-3.02 8.894-5.522a24.892 24.892 0 0 0 3.854-4.577c.426.074.852.093 1.28.093 3.854 0 7.097-2.65 8.023-6.207h3.113a8.29 8.29 0 0 0 8.023 6.207 8.2 8.2 0 0 0 4.188-1.149c.482 1.4.63 2.835.37 4.28z"
@@ -577,7 +578,8 @@
           </svg>Testing
         </li>
         <li>
-          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="23 6 97 132">
+          <svg class="icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="23 6 97 132">
             <title>Firebase Logo</title>
             <path fill="#ffa000"
               d="M23.833 111.719 39.966 8.49a2.98 2.98 0 0 1 5.57-.946L62.22 38.662 68.87 26a2.98 2.98 0 0 1 5.273 0l45.023 85.719H23.833z" />
@@ -599,7 +601,7 @@
         </svg>${this.LANGUAGES}</span>
       <ul class="section-content grid">
         <li>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="80 80 240 240">
+          <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="80 80 240 240">
             <title>${this.LANGUAGE_GERMAN}</title>
             <circle cx="200" cy="200" r="120" fill="#222" />
             <circle cx="200" cy="200" r="80" fill="#fff" />
@@ -607,7 +609,7 @@
           <span>${this.LANGUAGE_GERMAN} <span class="language-level">${this.LANGUAGE_SKILL_NATIVE}</span></span>
         </li>
         <li>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="80 80 240 240">
+          <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="80 80 240 240">
             <title>${this.LANGUAGE_ENGLISH}</title>
             <circle cx="200" cy="200" r="120" fill="#ddd" />
             <circle cx="200" cy="200" r="80" fill="#fff" />
@@ -617,6 +619,17 @@
           <span>${this.LANGUAGE_ENGLISH} <span
               class="language-level">${this.LANGUAGE_SKILL_HIGHLY_PROFICIENT}</span></span>
         </li>
+      </ul>
+      <span class="section-label"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+          <title>${this.HOBBIES}</title>
+          <path
+            d="M447.1 224c0-12.56-4.781-25.13-14.35-34.76l-174.9-174.9C249.1 4.786 236.5 0 223.1 0C211.4 0 198.9 4.786 189.2 14.35L14.35 189.2C4.783 198.9-.0011 211.4-.0011 223.1c0 12.56 4.785 25.17 14.35 34.8l174.9 174.9c9.625 9.562 22.19 14.35 34.75 14.35s25.13-4.783 34.75-14.35l174.9-174.9C443.2 249.1 447.1 236.6 447.1 224zM96 248c-13.25 0-23.1-10.75-23.1-23.1s10.75-23.1 23.1-23.1S120 210.8 120 224S109.3 248 96 248zM224 376c-13.25 0-23.1-10.75-23.1-23.1s10.75-23.1 23.1-23.1s23.1 10.75 23.1 23.1S237.3 376 224 376zM224 248c-13.25 0-23.1-10.75-23.1-23.1s10.75-23.1 23.1-23.1S248 210.8 248 224S237.3 248 224 248zM224 120c-13.25 0-23.1-10.75-23.1-23.1s10.75-23.1 23.1-23.1s23.1 10.75 23.1 23.1S237.3 120 224 120zM352 248c-13.25 0-23.1-10.75-23.1-23.1s10.75-23.1 23.1-23.1s23.1 10.75 23.1 23.1S365.3 248 352 248zM591.1 192l-118.7 0c4.418 10.27 6.604 21.25 6.604 32.23c0 20.7-7.865 41.38-23.63 57.14l-136.2 136.2v46.37C320 490.5 341.5 512 368 512h223.1c26.5 0 47.1-21.5 47.1-47.1V240C639.1 213.5 618.5 192 591.1 192zM479.1 376c-13.25 0-23.1-10.75-23.1-23.1s10.75-23.1 23.1-23.1s23.1 10.75 23.1 23.1S493.2 376 479.1 376z" />
+        </svg>${this.HOBBIES}</span>
+      <ul class="section-content grid">
+        <li><span class="icon">🚴</span><span>${this.CYCLING}</span></li>
+        <li><span class="icon">📖</span>${this.READING}</li>
+        <li><span class="icon">🏓</span>${this.TABLE_TENNIS}</li>
+        <li><span class="icon">🎮</span>${this.VIDEO_GAMES}</li>
       </ul>
     </section>
   </div>

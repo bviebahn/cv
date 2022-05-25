@@ -36,5 +36,10 @@
   "LANGUAGE_GERMAN": "Deutsch",
   "LANGUAGE_ENGLISH": "Englisch",
   "LANGUAGE_SKILL_NATIVE": "Muttersprache",
-  "LANGUAGE_SKILL_HIGHLY_PROFICIENT": "Verhandlungssicher"
+  "LANGUAGE_SKILL_HIGHLY_PROFICIENT": "Verhandlungssicher",
+  "HOBBIES": "Hobbies",
+  "CYCLING": "Fahrrad fahren",
+  "READING": "Lesen",
+  "TABLE_TENNIS": "Tischtennis",
+  "VIDEO_GAMES": "Videospiele"
 }

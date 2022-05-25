@@ -36,5 +36,10 @@
   "LANGUAGE_GERMAN": "German",
   "LANGUAGE_ENGLISH": "English",
   "LANGUAGE_SKILL_NATIVE": "Native Speaker",
-  "LANGUAGE_SKILL_HIGHLY_PROFICIENT": "Highly proficient"
+  "LANGUAGE_SKILL_HIGHLY_PROFICIENT": "Highly proficient",
+  "HOBBIES": "Hobbies",
+  "CYCLING": "Cycling",
+  "READING": "Reading",
+  "TABLE_TENNIS": "Table tennis",
+  "VIDEO_GAMES": "Video games"
 }
