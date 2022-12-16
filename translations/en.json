@@ -14,8 +14,8 @@
   "SUMMARY": "Dedicated Frontend Engineer with a passion for developing high quality responsive applications for various platforms using modern technologies like React/React Native, TypeScript and GraphQL. I highly value clean, testable and maintainable code and I'm eager to create a great product that is fun to use.",
   "EMPLOYMENT_HISTORY": "Employment History",
   "BRINGMEISTER_TITLE": "Software Engineer at Bringmeister GmbH, Berlin",
-  "BRINGMEISTER_TIMESPAN": "October 2017 - Present",
-  "BRINGMEISTER_DESCRIPTION": "At Bringmeister I work in a SCRUM team developing web- and cross-platform mobile applications. In recent years I have mainly focused on mobile app development using React Native. My tasks at Bringmeister include:",
+  "BRINGMEISTER_TIMESPAN": "October 2017 - August 2022",
+  "BRINGMEISTER_DESCRIPTION": "At Bringmeister I have worked in a SCRUM team developing web- and cross-platform mobile applications. I have mainly focused on mobile app development using React Native. My tasks at Bringmeister included:",
   "BRINGMEISTER_DESCRIPTION_POINT_1": "Contributing to the development of new features from concept through implementation",
   "BRINGMEISTER_DESCRIPTION_POINT_2": "Maintaining, optimizing and troubleshooting mobile apps",
   "BRINGMEISTER_DESCRIPTION_POINT_3": "Developing unit- and end-to-end tests",
@@ -23,6 +23,9 @@
   "DENTAL_WINGS_TITLE": "Werkstudent Software Engineer at Dental Wings GmbH, Berlin",
   "DENTAL_WINGS_TIMESPAN": "January 2016 - July 2017",
   "DENTAL_WINGS_DESCRIPTION": "While studying at Humboldt-Universität zu Berlin I worked at Dental Wings on a complex application targeted at dental technicians using Java.",
+  "LIVEEO_TITLE": "React Native Engineer at LiveEO GmbH, Berlin",
+  "LIVEEO_TIMESPAN": "September 2022 - Present",
+  "LIVEEO_DESCRIPTION": "At LiveEO I'm working on a mobile app which is still in an early stage. As the only developer working on the project during the first few months, I was responsible for project setup, developing features and setting up CI/CD pipelines.",
   "EDUCATION": "Education",
   "HTW_TITLE": "B.Sc., Angewandte Informatik, Hochschule für Technik und Wirtschaft Berlin",
   "HTW_TIMESPAN": "October 2017 - April 2022",
@@ -40,6 +43,7 @@
   "HOBBIES": "Hobbies",
   "CYCLING": "Cycling",
   "READING": "Reading",
+  "MUSIC": "Music",
   "TABLE_TENNIS": "Table tennis",
   "VIDEO_GAMES": "Video games"
 }
