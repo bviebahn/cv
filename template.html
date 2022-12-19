@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="${this.lang}">
+<html lang="${{this.lang}}">
 
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>${this.DOCUMENT_TITLE}</title>
-  <meta name="description" content="${this.DOCUMENT_DESCRIPTION}" />
+  <title>${{this.DOCUMENT_TITLE}}</title>
+  <meta name="description" content="${{this.DOCUMENT_DESCRIPTION}}" />
 
   <style>
     :root {
@@ -135,7 +135,11 @@
       background-color: #ddd;
     }
 
-    .language-selector>a.selected {
+    .language-selector>a:first-child:lang(en) {
+      background-color: #ccc;
+    }
+
+    .language-selector>a:nth-child(2):lang(de) {
       background-color: #ccc;
     }
 
@@ -318,6 +322,7 @@
     }
 
     @media only print {
+
       body .download-link,
       body .github-repo-link,
       body .language-selector {
@@ -328,11 +333,11 @@
         display: flex;
       }
 
-      .employment-content.lang-en {
+      .employment-content:lang(en) {
         margin-bottom: 100px;
       }
 
-      .employment-content.lang-de {
+      .employment-content:lang(de) {
         margin-bottom: 30px;
       }
 
@@ -347,336 +352,143 @@
   <div class="content-wrapper">
     <section class="content">
       <div class="top-row">
-        <img class="avatar" src="${this.ASSETS_PATH}/avatar.webp" alt="${this.AVATAR_ALT}" />
+        <img class="avatar" src="${{this.ASSETS_PATH}}/avatar.webp" alt="${{this.AVATAR_ALT}}" />
         <div class="top-row-links">
           <div class="contact-info">
-            <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                <title>${this.PHONE}</title>
-                <path
-                  d="M511.2 387l-23.25 100.8c-3.266 14.25-15.79 24.22-30.46 24.22C205.2 512 0 306.8 0 54.5c0-14.66 9.969-27.2 24.22-30.45l100.8-23.25C139.7-2.602 154.7 5.018 160.8 18.92l46.52 108.5c5.438 12.78 1.77 27.67-8.98 36.45L144.5 207.1c33.98 69.22 90.26 125.5 159.5 159.5l44.08-53.8c8.688-10.78 23.69-14.51 36.47-8.975l108.5 46.51C506.1 357.2 514.6 372.4 511.2 387z" />
-              </svg>+4915788025734</span>
-            <a href="mailto:bviebahn@pm.me"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                <title>${this.EMAIL}</title>
-                <path
-                  d="M464 64C490.5 64 512 85.49 512 112C512 127.1 504.9 141.3 492.8 150.4L275.2 313.6C263.8 322.1 248.2 322.1 236.8 313.6L19.2 150.4C7.113 141.3 0 127.1 0 112C0 85.49 21.49 64 48 64H464zM217.6 339.2C240.4 356.3 271.6 356.3 294.4 339.2L512 176V384C512 419.3 483.3 448 448 448H64C28.65 448 0 419.3 0 384V176L217.6 339.2z" />
-              </svg>bviebahn@pm.me</a>
+            <span>${{this.asset('phone-icon.svg')}}+4915788025734</span>
+            <a href="mailto:bviebahn@pm.me">${{this.asset('email-icon.svg')}}bviebahn@pm.me</a>
           </div>
           <div class="online-links">
-            <a href="https://github.com/bviebahn/cv/raw/main/assets/benedikt_viebahn_cv_${this.lang}.pdf"
-              target="_blank" class="download-link" title="${this.DOWNLOAD_PDF_LINK_TITLE}"><svg
-                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
-                <title>${this.DOWNLOAD_PDF_LINK_TITLE}</title>
-                <path
-                  d="M88 304H80V256H88C101.3 256 112 266.7 112 280C112 293.3 101.3 304 88 304zM192 256H200C208.8 256 216 263.2 216 272V336C216 344.8 208.8 352 200 352H192V256zM224 0V128C224 145.7 238.3 160 256 160H384V448C384 483.3 355.3 512 320 512H64C28.65 512 0 483.3 0 448V64C0 28.65 28.65 0 64 0H224zM64 224C55.16 224 48 231.2 48 240V368C48 376.8 55.16 384 64 384C72.84 384 80 376.8 80 368V336H88C118.9 336 144 310.9 144 280C144 249.1 118.9 224 88 224H64zM160 368C160 376.8 167.2 384 176 384H200C226.5 384 248 362.5 248 336V272C248 245.5 226.5 224 200 224H176C167.2 224 160 231.2 160 240V368zM288 224C279.2 224 272 231.2 272 240V368C272 376.8 279.2 384 288 384C296.8 384 304 376.8 304 368V320H336C344.8 320 352 312.8 352 304C352 295.2 344.8 288 336 288H304V256H336C344.8 256 352 248.8 352 240C352 231.2 344.8 224 336 224H288zM256 0L384 128H256V0z" />
-              </svg></a>
+            <a href="https://github.com/bviebahn/cv/raw/main/assets/benedikt_viebahn_cv_${{this.lang}}.pdf"
+              target="_blank" class="download-link"
+              title="${{this.DOWNLOAD_PDF_LINK_TITLE}}">${{this.asset('download-icon.svg')}}</a>
             <a href="https://github.com/bviebahn/cv" target="_blank" class="github-repo-link"
-              title="GitHub repository"><svg viewBox="0 0 1024 1024" fill="#1B1F23" xmlns="http://www.w3.org/2000/svg">
-                <title>GitHub repository</title>
-                <path fill-rule="evenodd" clip-rule="evenodd"
-                  d="M512 0C229.12 0 0 229.12 0 512c0 226.56 146.56 417.92 350.08 485.76 25.6 4.48 35.2-10.88 35.2-24.32 0-12.16-.64-52.48-.64-95.36-128.64 23.68-161.92-31.36-172.16-60.16-5.76-14.72-30.72-60.16-52.48-72.32-17.92-9.6-43.52-33.28-.64-33.92 40.32-.64 69.12 37.12 78.72 52.48 46.08 77.44 119.68 55.68 149.12 42.24 4.48-33.28 17.92-55.68 32.64-68.48-113.92-12.8-232.96-56.96-232.96-252.8 0-55.68 19.84-101.76 52.48-137.6-5.12-12.8-23.04-65.28 5.12-135.68 0 0 42.88-13.44 140.8 52.48 40.96-11.52 84.48-17.28 128-17.28 43.52 0 87.04 5.76 128 17.28 97.92-66.56 140.8-52.48 140.8-52.48 28.16 70.4 10.24 122.88 5.12 135.68 32.64 35.84 52.48 81.28 52.48 137.6 0 196.48-119.68 240-233.6 252.8 18.56 16 34.56 46.72 34.56 94.72 0 68.48-.64 123.52-.64 140.8 0 13.44 9.6 29.44 35.2 24.32C877.44 929.92 1024 737.92 1024 512 1024 229.12 794.88 0 512 0Z" />
-              </svg></a>
-            <a href="https://bviebahn.github.io/cv/${this.lang === 'en' ? '' : this.lang}" class="online-version-link"
-              title="${this.WEB_VERSION}">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                <title>${this.WEB_VERSION}</title>
-                <path
-                  d="M352 256C352 278.2 350.8 299.6 348.7 320H163.3C161.2 299.6 159.1 278.2 159.1 256C159.1 233.8 161.2 212.4 163.3 192H348.7C350.8 212.4 352 233.8 352 256zM503.9 192C509.2 212.5 512 233.9 512 256C512 278.1 509.2 299.5 503.9 320H380.8C382.9 299.4 384 277.1 384 256C384 234 382.9 212.6 380.8 192H503.9zM493.4 160H376.7C366.7 96.14 346.9 42.62 321.4 8.442C399.8 29.09 463.4 85.94 493.4 160zM344.3 160H167.7C173.8 123.6 183.2 91.38 194.7 65.35C205.2 41.74 216.9 24.61 228.2 13.81C239.4 3.178 248.7 0 256 0C263.3 0 272.6 3.178 283.8 13.81C295.1 24.61 306.8 41.74 317.3 65.35C328.8 91.38 338.2 123.6 344.3 160H344.3zM18.61 160C48.59 85.94 112.2 29.09 190.6 8.442C165.1 42.62 145.3 96.14 135.3 160H18.61zM131.2 192C129.1 212.6 127.1 234 127.1 256C127.1 277.1 129.1 299.4 131.2 320H8.065C2.8 299.5 0 278.1 0 256C0 233.9 2.8 212.5 8.065 192H131.2zM194.7 446.6C183.2 420.6 173.8 388.4 167.7 352H344.3C338.2 388.4 328.8 420.6 317.3 446.6C306.8 470.3 295.1 487.4 283.8 498.2C272.6 508.8 263.3 512 255.1 512C248.7 512 239.4 508.8 228.2 498.2C216.9 487.4 205.2 470.3 194.7 446.6H194.7zM190.6 503.6C112.2 482.9 48.59 426.1 18.61 352H135.3C145.3 415.9 165.1 469.4 190.6 503.6V503.6zM321.4 503.6C346.9 469.4 366.7 415.9 376.7 352H493.4C463.4 426.1 399.8 482.9 321.4 503.6V503.6z" />
-              </svg>${this.WEB_VERSION}</a>
+              title="GitHub repository">${{this.asset('github-logo.svg', { title: 'GitHub Repository' })}}</a>
+            <a href="https://bviebahn.github.io/cv/${{this.lang === 'en' ? '' : this.lang}}" class="online-version-link"
+              title="${{this.WEB_VERSION}}">
+              ${{this.asset('web-icon.svg')}}${{this.WEB_VERSION}}</a>
           </div>
           <div class="language-selector">
-            <a href="/cv" class="${this.lang === 'en' ? 'selected' : ''}"
-              title="${this.ENGLISH_LANGUAGE_LINK_TITLE}"><img src="${this.ASSETS_PATH}/flag-uk.webp"
-                alt="${this.ENGLISH_LANGUAGE_LINK_TITLE}" /></a>
-            <a href="/cv/de" class="${this.lang === 'de' ? 'selected' : ''}"
-              title="${this.GERMAN_LANGUAGE_LINK_TITLE}"><img src="${this.ASSETS_PATH}/flag-germany.webp"
-                alt="${this.GERMAN_LANGUAGE_LINK_TITLE}" /></a>
+            <a href="/cv" title="${{this.ENGLISH_LANGUAGE_LINK_TITLE}}"><img src="${{this.ASSETS_PATH}}/flag-uk.webp"
+                alt="${{this.ENGLISH_LANGUAGE_LINK_TITLE}}" /></a>
+            <a href="/cv/de" title="${{this.GERMAN_LANGUAGE_LINK_TITLE}}"><img
+                src="${{this.ASSETS_PATH}}/flag-germany.webp" alt="${{this.GERMAN_LANGUAGE_LINK_TITLE}}" /></a>
           </div>
         </div>
       </div>
       <section class="summary">
-        <h2>${this.SUMMARY_TITLE}</h2>
-        <p>${this.SUMMARY}</p>
+        <h2>${{this.SUMMARY_TITLE}}</h2>
+        <p>${{this.SUMMARY}}</p>
       </section>
-      <span class="section-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-          <title>${this.EMPLOYMENT_HISTORY}</title>
-          <path
-            d="M320 336c0 8.844-7.156 16-16 16h-96C199.2 352 192 344.8 192 336V288H0v144C0 457.6 22.41 480 48 480h416c25.59 0 48-22.41 48-48V288h-192V336zM464 96H384V48C384 22.41 361.6 0 336 0h-160C150.4 0 128 22.41 128 48V96H48C22.41 96 0 118.4 0 144V256h512V144C512 118.4 489.6 96 464 96zM336 96h-160V48h160V96z" />
-        </svg>${this.EMPLOYMENT_HISTORY}</span>
-      <div class="section-content employment-content lang-${this.lang}">
+      <span class="section-label">${{this.asset('employment-icon.svg')}}${{this.EMPLOYMENT_HISTORY}}</span>
+      <div class="section-content employment-content">
         <section class="section-entry">
-          <h3>${this.LIVEEO_TITLE}</h3>
-          <span>${this.LIVEEO_TIMESPAN}</span>
-          <p>${this.LIVEEO_DESCRIPTION}</p>
+          <h3>${{this.LIVEEO_TITLE}}</h3>
+          <span>${{this.LIVEEO_TIMESPAN}}</span>
+          <p>${{this.LIVEEO_DESCRIPTION}}</p>
         </section>
         <section class="section-entry">
-          <h3>${this.BRINGMEISTER_TITLE}</h3>
-          <span>${this.BRINGMEISTER_TIMESPAN}</span>
-          <p>${this.BRINGMEISTER_DESCRIPTION}</p>
+          <h3>${{this.BRINGMEISTER_TITLE}}</h3>
+          <span>${{this.BRINGMEISTER_TIMESPAN}}</span>
+          <p>${{this.BRINGMEISTER_DESCRIPTION}}</p>
           <ul>
-            <li>${this.BRINGMEISTER_DESCRIPTION_POINT_1}</li>
-            <li>${this.BRINGMEISTER_DESCRIPTION_POINT_2}</li>
-            <li>${this.BRINGMEISTER_DESCRIPTION_POINT_3}</li>
-            <li>${this.BRINGMEISTER_DESCRIPTION_POINT_4}</li>
+            <li>${{this.BRINGMEISTER_DESCRIPTION_POINT_1}}</li>
+            <li>${{this.BRINGMEISTER_DESCRIPTION_POINT_2}}</li>
+            <li>${{this.BRINGMEISTER_DESCRIPTION_POINT_3}}</li>
+            <li>${{this.BRINGMEISTER_DESCRIPTION_POINT_4}}</li>
           </ul>
         </section>
         <section class="section-entry">
-          <h3>${this.DENTAL_WINGS_TITLE}</h3>
-          <span>${this.DENTAL_WINGS_TIMESPAN}</span>
-          <p>${this.DENTAL_WINGS_DESCRIPTION}</p>
+          <h3>${{this.DENTAL_WINGS_TITLE}}</h3>
+          <span>${{this.DENTAL_WINGS_TIMESPAN}}</span>
+          <p>${{this.DENTAL_WINGS_DESCRIPTION}}</p>
         </section>
       </div>
-      <span class="section-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
-          <title>${this.EDUCATION}</title>
-          <path
-            d="M623.1 136.9l-282.7-101.2c-13.73-4.91-28.7-4.91-42.43 0L16.05 136.9C6.438 140.4 0 149.6 0 160s6.438 19.65 16.05 23.09L76.07 204.6c-11.89 15.8-20.26 34.16-24.55 53.95C40.05 263.4 32 274.8 32 288c0 9.953 4.814 18.49 11.94 24.36l-24.83 149C17.48 471.1 25 480 34.89 480H93.11c9.887 0 17.41-8.879 15.78-18.63l-24.83-149C91.19 306.5 96 297.1 96 288c0-10.29-5.174-19.03-12.72-24.89c4.252-17.76 12.88-33.82 24.94-47.03l190.6 68.23c13.73 4.91 28.7 4.91 42.43 0l282.7-101.2C633.6 179.6 640 170.4 640 160S633.6 140.4 623.1 136.9zM351.1 314.4C341.7 318.1 330.9 320 320 320c-10.92 0-21.69-1.867-32-5.555L142.8 262.5L128 405.3C128 446.6 213.1 480 320 480c105.1 0 192-33.4 192-74.67l-14.78-142.9L351.1 314.4z" />
-        </svg>${this.EDUCATION}</span>
+      <span class="section-label">${{this.asset('education-icon.svg')}}${{this.EDUCATION}}</span>
       <div class="section-content education-content">
         <section class="section-entry">
-          <h3>${this.HTW_TITLE}</h3>
-          <span>${this.HTW_TIMESPAN}</span>
+          <h3>${{this.HTW_TITLE}}</h3>
+          <span>${{this.HTW_TIMESPAN}}</span>
         </section>
         <section class="section-entry">
-          <h3>${this.HUMBOLDT_TITLE}</h3>
-          <span>${this.HUMBOLDT_TIMESPAN}</span>
+          <h3>${{this.HUMBOLDT_TITLE}}</h3>
+          <span>${{this.HUMBOLDT_TIMESPAN}}</span>
         </section>
         <section class="section-entry">
-          <h3>${this.ABITUR_TITLE}</h3>
-          <span>${this.ABITUR_TIMESPAN}</span>
+          <h3>${{this.ABITUR_TITLE}}</h3>
+          <span>${{this.ABITUR_TIMESPAN}}</span>
         </section>
       </div>
-      <span class="section-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
-          <title>${this.LINKS}</title>
-          <path
-            d="M172.5 131.1C228.1 75.51 320.5 75.51 376.1 131.1C426.1 181.1 433.5 260.8 392.4 318.3L391.3 319.9C381 334.2 361 337.6 346.7 327.3C332.3 317 328.9 297 339.2 282.7L340.3 281.1C363.2 249 359.6 205.1 331.7 177.2C300.3 145.8 249.2 145.8 217.7 177.2L105.5 289.5C73.99 320.1 73.99 372 105.5 403.5C133.3 431.4 177.3 435 209.3 412.1L210.9 410.1C225.3 400.7 245.3 404 255.5 418.4C265.8 432.8 262.5 452.8 248.1 463.1L246.5 464.2C188.1 505.3 110.2 498.7 60.21 448.8C3.741 392.3 3.741 300.7 60.21 244.3L172.5 131.1zM467.5 380C411 436.5 319.5 436.5 263 380C213 330 206.5 251.2 247.6 193.7L248.7 192.1C258.1 177.8 278.1 174.4 293.3 184.7C307.7 194.1 311.1 214.1 300.8 229.3L299.7 230.9C276.8 262.1 280.4 306.9 308.3 334.8C339.7 366.2 390.8 366.2 422.3 334.8L534.5 222.5C566 191 566 139.1 534.5 108.5C506.7 80.63 462.7 76.99 430.7 99.9L429.1 101C414.7 111.3 394.7 107.1 384.5 93.58C374.2 79.2 377.5 59.21 391.9 48.94L393.5 47.82C451 6.731 529.8 13.25 579.8 63.24C636.3 119.7 636.3 211.3 579.8 267.7L467.5 380z" />
-        </svg>${this.LINKS}</span>
+      <span class="section-label">${{this.asset('links-icon.svg')}}${{this.LINKS}}</span>
       <ul class="section-content grid">
         <li>
-          <a class="link" href="https://github.com/bviebahn" target="_blank" title="${this.GITHUB_PROFILE_LINK_TITLE}">
-            <svg class="icon" viewBox="0 0 1024 1024" fill="#1B1F23" xmlns="http://www.w3.org/2000/svg">
-              <title>GitHub</title>
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M512 0C229.12 0 0 229.12 0 512c0 226.56 146.56 417.92 350.08 485.76 25.6 4.48 35.2-10.88 35.2-24.32 0-12.16-.64-52.48-.64-95.36-128.64 23.68-161.92-31.36-172.16-60.16-5.76-14.72-30.72-60.16-52.48-72.32-17.92-9.6-43.52-33.28-.64-33.92 40.32-.64 69.12 37.12 78.72 52.48 46.08 77.44 119.68 55.68 149.12 42.24 4.48-33.28 17.92-55.68 32.64-68.48-113.92-12.8-232.96-56.96-232.96-252.8 0-55.68 19.84-101.76 52.48-137.6-5.12-12.8-23.04-65.28 5.12-135.68 0 0 42.88-13.44 140.8 52.48 40.96-11.52 84.48-17.28 128-17.28 43.52 0 87.04 5.76 128 17.28 97.92-66.56 140.8-52.48 140.8-52.48 28.16 70.4 10.24 122.88 5.12 135.68 32.64 35.84 52.48 81.28 52.48 137.6 0 196.48-119.68 240-233.6 252.8 18.56 16 34.56 46.72 34.56 94.72 0 68.48-.64 123.52-.64 140.8 0 13.44 9.6 29.44 35.2 24.32C877.44 929.92 1024 737.92 1024 512 1024 229.12 794.88 0 512 0Z" />
-            </svg>GitHub</a>
+          <a class="link" href="https://github.com/bviebahn" target="_blank"
+            title="${{this.GITHUB_PROFILE_LINK_TITLE}}">
+            ${{this.asset('github-logo.svg', { title: 'GitHub' })}}GitHub</a>
         </li>
         <li>
           <a class="link" href="https://apps.apple.com/de/app/bringmeister-online-supermarkt/id1436032857"
             target="_blank" title="Bringmeister App (App Store)">
-            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" xml:space="preserve">
-              <linearGradient id="app-store-gradient" gradientUnits="userSpaceOnUse" x1="400.05" y1="798.772"
-                x2="400.05" y2="-1.228" gradientTransform="matrix(1 0 0 -1 0 798.772)">
-                <stop offset="0" style="stop-color:#18bffb" />
-                <stop offset="1" style="stop-color:#2072f3" />
-              </linearGradient>
-              <path fill="url(#app-store-gradient)"
-                d="M638.4 0H161.6C72.3 0 0 72.3 0 161.6v476.9C0 727.7 72.3 800 161.6 800h476.9c89.2 0 161.6-72.3 161.6-161.6V161.6C800 72.3 727.7 0 638.4 0z" />
-              <path fill="#FFF"
-                d="m396.6 183.8 16.2-28c10-17.5 32.3-23.4 49.8-13.4s23.4 32.3 13.4 49.8L319.9 462.4h112.9c36.6 0 57.1 43 41.2 72.8H143c-20.2 0-36.4-16.2-36.4-36.4s16.2-36.4 36.4-36.4h92.8l118.8-205.9-37.1-64.4c-10-17.5-4.1-39.6 13.4-49.8 17.5-10 39.6-4.1 49.8 13.4l15.9 28.1zM256.2 572.7l-35 60.7c-10 17.5-32.3 23.4-49.8 13.4S148 614.5 158 597l26-45c29.4-9.1 53.3-2.1 72.2 20.7zm301.4-110.1h94.7c20.2 0 36.4 16.2 36.4 36.4s-16.2 36.4-36.4 36.4h-52.6l35.5 61.6c10 17.5 4.1 39.6-13.4 49.8-17.5 10-39.6 4.1-49.8-13.4-59.8-103.7-104.7-181.3-134.5-233-30.5-52.6-8.7-105.4 12.8-123.3 23.9 41 59.6 102.9 107.3 185.5z" />
-            </svg>Bringmeister App (App Store)</a>
+            ${{this.asset('app-store-logo.svg')}}Bringmeister App (App Store)</a>
         </li>
         <li>
           <a class="link" href="https://play.google.com/store/apps/details?id=de.bringmeister.app" target="_blank"
             title="Bringmeister App (Play Store)">
-            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1903.7 1903.7">
-              <linearGradient id="a" x1="2891" x2="2784.4" y1="1504.5" y2="1449.5"
-                gradientTransform="matrix(11.64 0 0 -22.55 -32777 34043)" gradientUnits="userSpaceOnUse">
-                <stop offset="0" stop-color="#00A0FF" />
-                <stop offset=".007" stop-color="#00A1FF" />
-                <stop offset=".26" stop-color="#00BEFF" />
-                <stop offset=".512" stop-color="#00D2FF" />
-                <stop offset=".76" stop-color="#00DFFF" />
-                <stop offset="1" stop-color="#00E3FF" />
-              </linearGradient>
-              <path fill="url(#a)" fill-rule="evenodd"
-                d="M33.7 29.2C12.3 52.2 0 87.6 0 133.6v1636.2c0 46 12.3 81.4 34.5 103.6l5.8 4.9 916.8-916.8v-20.6L39.5 24.3l-5.8 4.9z"
-                clip-rule="evenodd" />
-              <linearGradient id="b" x1="2935.2" x2="2739.4" y1="1422.8" y2="1422.8"
-                gradientTransform="matrix(9.145 0 0 -7.7 -25077 11907)" gradientUnits="userSpaceOnUse">
-                <stop offset="0" stop-color="#FFE000" />
-                <stop offset=".409" stop-color="#FFBD00" />
-                <stop offset=".775" stop-color="orange" />
-                <stop offset="1" stop-color="#FF9C00" />
-              </linearGradient>
-              <path fill="url(#b)" fill-rule="evenodd"
-                d="M1262.1 1268.3 956.3 962.4V941l305.9-305.9 6.6 4.1 361.8 205.6c103.6 58.4 103.6 154.6 0 213.8l-361.8 205.6c-.1 0-6.7 4.1-6.7 4.1z"
-                clip-rule="evenodd" />
-              <linearGradient id="c" x1="2948.8" x2="2836.6" y1="1431.3" y2="1285.9"
-                gradientTransform="matrix(15.02 0 0 -11.578 -43192 17693)" gradientUnits="userSpaceOnUse">
-                <stop offset="0" stop-color="#FF3A44" />
-                <stop offset="1" stop-color="#C31162" />
-              </linearGradient>
-              <path fill="url(#c)" fill-rule="evenodd"
-                d="M1268.7 1264.2 956.3 951.7 33.7 1874.3c33.7 36.2 90.4 40.3 153.8 4.9l1081.2-615"
-                clip-rule="evenodd" />
-              <linearGradient id="d" x1="2862.4" x2="2912.5" y1="1571.7" y2="1506.8"
-                gradientTransform="matrix(15.02 0 0 -11.572 -43192 17672)" gradientUnits="userSpaceOnUse">
-                <stop offset="0" stop-color="#32A071" />
-                <stop offset=".069" stop-color="#2DA771" />
-                <stop offset=".476" stop-color="#15CF74" />
-                <stop offset=".801" stop-color="#06E775" />
-                <stop offset="1" stop-color="#00F076" />
-              </linearGradient>
-              <path fill="url(#d)" fill-rule="evenodd"
-                d="M1268.7 639.3 187.5 25.1C124.2-11.1 67.4-6.2 33.7 30l922.5 921.7 312.5-312.4z" clip-rule="evenodd" />
-              <path fill-rule="evenodd"
-                d="M1262.1 1257.6 188.3 1867.7c-60 34.5-113.5 32.1-148 .8l-5.8 5.8 5.8 4.9c34.5 31.2 88 33.7 148-.8l1081.2-614.2-7.4-6.6z"
-                clip-rule="evenodd" opacity=".2" />
-              <path fill-rule="evenodd"
-                d="m1630.5 1047.9-369.2 209.7 6.6 6.6 361.8-205.6c51.8-29.6 77.3-68.2 77.3-106.9-3.3 35.4-29.6 69.1-76.5 96.2z"
-                clip-rule="evenodd" opacity=".12" />
-              <path fill="#fff" fill-rule="evenodd"
-                d="m187.5 35.8 1443 819.8c46.9 26.3 73.2 60.8 77.3 96.2 0-38.6-25.5-77.3-77.3-106.9L187.5 25.1C83.9-34.1 0 15.2 0 133.6v10.7C0 25.9 83.9-22.6 187.5 35.8z"
-                clip-rule="evenodd" opacity=".25" />
-            </svg>Bringmeister App (Play Store)</a>
+            ${{this.asset('play-store-logo.svg')}}Bringmeister App (Play Store)</a>
         </li>
       </ul>
-      <span class="section-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
-          <title>${this.SKILLS}</title>
-          <path
-            d="M414.8 40.79L286.8 488.8C281.9 505.8 264.2 515.6 247.2 510.8C230.2 505.9 220.4 488.2 225.2 471.2L353.2 23.21C358.1 6.216 375.8-3.624 392.8 1.232C409.8 6.087 419.6 23.8 414.8 40.79H414.8zM518.6 121.4L630.6 233.4C643.1 245.9 643.1 266.1 630.6 278.6L518.6 390.6C506.1 403.1 485.9 403.1 473.4 390.6C460.9 378.1 460.9 357.9 473.4 345.4L562.7 256L473.4 166.6C460.9 154.1 460.9 133.9 473.4 121.4C485.9 108.9 506.1 108.9 518.6 121.4V121.4zM166.6 166.6L77.25 256L166.6 345.4C179.1 357.9 179.1 378.1 166.6 390.6C154.1 403.1 133.9 403.1 121.4 390.6L9.372 278.6C-3.124 266.1-3.124 245.9 9.372 233.4L121.4 121.4C133.9 108.9 154.1 108.9 166.6 121.4C179.1 133.9 179.1 154.1 166.6 166.6V166.6z" />
-        </svg>${this.SKILLS}</span>
+      <span class="section-label">${{this.asset('skills-icon.svg')}}${{this.SKILLS}}</span>
       <ul class="section-content grid">
         <li>
-          <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 630 630">
-            <title>JavaScript Logo</title>
-            <path fill="#f7df1e" d="M0 0h630v630H0z" />
-            <path
-              d="M423.2 492.19c12.69 20.72 29.2 35.95 58.4 35.95 24.53 0 40.2-12.26 40.2-29.2 0-20.3-16.1-27.49-43.1-39.3l-14.8-6.35c-42.72-18.2-71.1-41-71.1-89.2 0-44.4 33.83-78.2 86.7-78.2 37.64 0 64.7 13.1 84.2 47.4l-46.1 29.6c-10.15-18.2-21.1-25.37-38.1-25.37-17.34 0-28.33 11-28.33 25.37 0 17.76 11 24.95 36.4 35.95l14.8 6.34c50.3 21.57 78.7 43.56 78.7 93 0 53.3-41.87 82.5-98.1 82.5-54.98 0-90.5-26.2-107.88-60.54zm-209.13 5.13c9.3 16.5 17.76 30.45 38.1 30.45 19.45 0 31.72-7.61 31.72-37.2v-201.3h59.2v202.1c0 61.3-35.94 89.2-88.4 89.2-47.4 0-74.85-24.53-88.81-54.075z" />
-          </svg>JavaScript
+          ${{this.asset('javascript-icon.svg')}}JavaScript
         </li>
         <li>
-          <svg class="icon" width="512" height="512" fill="none" viewBox="0 0 512 512"
-            xmlns="http://www.w3.org/2000/svg">
-            <title>TypeScript Logo</title>
-            <rect width="512" height="512" rx="50" fill="#3178c6" />
-            <path
-              d="M317 407v50c8.1 4.2 18 7.3 29 9.4s23 3.1 35 3.1 23-1.1 34-3.4 20-6.1 28-11c8.1-5.3 15-12 19-21s7.1-19 7.1-32c0-9.1-1.4-17-4.1-24s-6.6-13-12-18c-5.1-5.3-11-10-18-14s-15-8.2-24-12c-6.6-2.7-12-5.3-18-7.9-5.2-2.6-9.7-5.2-13-7.8-3.7-2.7-6.5-5.5-8.5-8.4-2-3-3-6.3-3-10 0-3.4.89-6.5 2.7-9.3s4.3-5.1 7.5-7.1 7.2-3.5 12-4.6c4.7-1.1 9.9-1.6 16-1.6 4.2 0 8.6.31 13 .94 4.6.63 9.3 1.6 14 2.9 4.7 1.3 9.3 2.9 14 4.9 4.4 2 8.5 4.3 12 6.9v-47c-7.6-2.9-16-5.1-25-6.5s-19-2.1-31-2.1-23 1.3-34 3.8-20 6.5-28 12c-8.1 5.4-14 12-19 21-4.7 8.4-7 18-7 30 0 15 4.3 28 13 38 8.6 11 22 19 39 27 6.9 2.8 13 5.6 19 8.3s11 5.5 15 8.4c4.3 2.9 7.7 6.1 10 9.5 2.5 3.4 3.8 7.4 3.8 12 0 3.2-.78 6.2-2.3 9s-3.9 5.2-7.1 7.2-7.1 3.6-12 4.8c-4.7 1.1-10 1.7-17 1.7-11 0-22-1.9-32-5.7-11-3.8-21-9.5-30-17zm-84-123h64v-41H118v41h64v183h51z"
-              clip-rule="evenodd" fill="#fff" fill-rule="evenodd" style="fill: #fff" />
-          </svg>TypeScript
+          ${{this.asset('typescript-icon.svg')}}TypeScript
         </li>
         <li>
-          <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="-11.5 -10.232 23 20.463">
-            <title>React Logo</title>
-            <circle r="2.05" fill="#61dafb" />
-            <g stroke="#61dafb" fill="none">
-              <ellipse rx="11" ry="4.2" />
-              <ellipse rx="11" ry="4.2" transform="rotate(60)" />
-              <ellipse rx="11" ry="4.2" transform="rotate(120)" />
-            </g>
-          </svg>React
+          ${{this.asset('react-icon.svg')}}React
         </li>
         <li>
-          <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="-11.5 -10.232 23 20.463">
-            <title>React Logo</title>
-            <circle r="2.05" fill="#61dafb" />
-            <g stroke="#61dafb" fill="none">
-              <ellipse rx="11" ry="4.2" />
-              <ellipse rx="11" ry="4.2" transform="rotate(60)" />
-              <ellipse rx="11" ry="4.2" transform="rotate(120)" />
-            </g>
-          </svg>React Native
+          ${{this.asset('react-icon.svg')}}React Native
         </li>
         <li>
-          <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 114 114">
-            <title>Git Logo</title>
-            <path fill="#f05133"
-              d="M111.78 51.977 62.035 2.238a7.335 7.335 0 0 0-10.374 0l-10.329 10.33L54.434 25.67c3.046-1.028 6.537-.339 8.964 2.089a8.72 8.72 0 0 1 2.07 9.019l12.628 12.628c3.055-1.053 6.58-.373 9.02 2.071a8.726 8.726 0 0 1 0 12.345 8.73 8.73 0 0 1-14.25-9.494L61.09 42.551v30.991a8.805 8.805 0 0 1 2.308 1.65c3.41 3.41 3.41 8.934 0 12.349-3.41 3.409-8.938 3.409-12.345 0-3.41-3.415-3.41-8.939 0-12.348a8.736 8.736 0 0 1 2.859-1.905V42.01a8.614 8.614 0 0 1-2.86-1.905 8.728 8.728 0 0 1-1.88-9.544L36.255 17.642 2.15 51.747a7.339 7.339 0 0 0 0 10.378l49.742 49.74a7.338 7.338 0 0 0 10.376 0L111.78 62.36a7.341 7.341 0 0 0 0-10.379" />
-          </svg>Git
+          ${{this.asset('git-icon.svg')}}Git
         </li>
         <li>
-          <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" xml:space="preserve">
-            <title>GraphQL Logo</title>
-            <path fill="#E535AB" d="m57.468 302.665-14.376-8.3 160.15-277.388 14.376 8.3z" />
-            <path fill="#E535AB" d="M39.8 272.2h320.3v16.6H39.8z" />
-            <path fill="#E535AB"
-              d="m206.35 374.026-160.215-92.5 8.3-14.376 160.215 92.5zm139.174-241.079-160.215-92.5 8.3-14.376 160.215 92.5z" />
-            <path fill="#E535AB" d="m54.48 132.884-8.3-14.376 160.215-92.5 8.3 14.376z" />
-            <path fill="#E535AB"
-              d="M342.568 302.666 182.418 25.278l14.376-8.3 160.15 277.388zM52.5 107.5h16.6v185H52.5z" />
-            <path fill="#E535AB" d="M330.9 107.5h16.6v185h-16.6z" />
-            <path fill="#E535AB" d="m203.52 367-7.25-12.558 139.344-80.45 7.25 12.558z" />
-            <path fill="#E535AB"
-              d="M369.5 297.9c-9.6 16.7-31 22.4-47.7 12.8-16.7-9.6-22.4-31-12.8-47.7 9.6-16.7 31-22.4 47.7-12.8 16.8 9.7 22.5 31 12.8 47.7M90.9 137c-9.6 16.7-31 22.4-47.7 12.8-16.7-9.6-22.4-31-12.8-47.7 9.6-16.7 31-22.4 47.7-12.8 16.7 9.7 22.4 31 12.8 47.7M30.5 297.9c-9.6-16.7-3.9-38 12.8-47.7 16.7-9.6 38-3.9 47.7 12.8 9.6 16.7 3.9 38-12.8 47.7-16.8 9.6-38.1 3.9-47.7-12.8M309.1 137c-9.6-16.7-3.9-38 12.8-47.7 16.7-9.6 38-3.9 47.7 12.8 9.6 16.7 3.9 38-12.8 47.7-16.7 9.6-38.1 3.9-47.7-12.8M200 395.8c-19.3 0-34.9-15.6-34.9-34.9 0-19.3 15.6-34.9 34.9-34.9 19.3 0 34.9 15.6 34.9 34.9 0 19.2-15.6 34.9-34.9 34.9M200 74c-19.3 0-34.9-15.6-34.9-34.9 0-19.3 15.6-34.9 34.9-34.9 19.3 0 34.9 15.6 34.9 34.9 0 19.3-15.6 34.9-34.9 34.9" />
-          </svg>
-          GraphQL
+          ${{this.asset('graphql-icon.svg')}}GraphQL
         </li>
         <li>
-          <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 66">
-            <title>Jest Logo</title>
-            <path
-              d="M56.453 31.518c0-3.854-2.65-7.097-6.207-8.023L58.214 0H18.717l7.986 23.57c-3.446 1-5.985 4.188-5.985 7.968 0 2.78 1.4 5.244 3.502 6.763a22.092 22.092 0 0 1-2.89 3.317c-2.057 1.927-4.336 3.4-6.8 4.4-2.224-1.5-3.187-4.15-2.316-6.522a8.29 8.29 0 0 0 5.855-7.93c0-4.577-3.724-8.283-8.283-8.283-4.577 0-8.3 3.724-8.3 8.3a8.24 8.24 0 0 0 2.409 5.818l-.4.797c-1.24 2.557-2.65 5.448-3.187 8.7-1.075 6.485.686 11.692 4.93 14.638 2.4 1.65 5.02 2.483 7.856 2.483 4.873 0 9.82-2.446 14.6-4.818 3.4-1.686 6.93-3.446 10.395-4.3 1.28-.315 2.613-.5 4.02-.704 2.854-.408 5.8-.834 8.45-2.372 3.094-1.797 5.207-4.8 5.818-8.246.463-2.65 0-5.318-1.186-7.653a8.265 8.265 0 0 0 1.24-4.4zm-3.613 0c0 2.576-2.094 4.67-4.67 4.67s-4.67-2.094-4.67-4.67a4.81 4.81 0 0 1 .6-2.316 5.05 5.05 0 0 1 .52-.74c.193-.227.411-.432.649-.611l.02-.02.482-.334s.02 0 .02-.02c.074-.037.148-.093.222-.13.02 0 .037-.02.056-.02.074-.037.167-.074.26-.1a3.49 3.49 0 0 0 .26-.11c.02 0 .037-.02.056-.02.074-.02.148-.056.222-.074.02 0 .056-.02.074-.02l.26-.056h.02l.278-.056c.02 0 .056 0 .074-.02.074 0 .148-.02.222-.02h.093c.093 0 .185-.02.296-.02h.24a.76.76 0 0 1 .204.019h.037c.148.02.296.037.445.074a4.71 4.71 0 0 1 3.724 4.595zM23.897 3.706h29.147l-6.7 19.734a7.263 7.263 0 0 0-.834.24L38.47 9.32l-7.06 14.268c-.278-.093-.574-.148-.87-.204zm13.248 26.2a8.22 8.22 0 0 0-2.5-4.447l3.836-7.745 3.873 7.912a8.37 8.37 0 0 0-2.316 4.28zm-9.283-2.928.26-.056h.056c.074-.02.148-.02.222-.037h.074c.074 0 .13-.02.204-.02h.723c.074 0 .13.02.185.02.037 0 .056 0 .093.02.074.02.13.02.204.037.02 0 .037 0 .074.02l.26.056c.093.02.167.037.24.074.02 0 .037.02.074.02.056.02.13.037.185.074.02 0 .037.02.056.02.074.037.148.056.222.093h.02a1 1 0 0 1 .241.13c.093.037.167.093.24.13.02 0 .02.02.037.02.074.037.13.093.204.13l.02.02c.222.167.426.352.63.537l.02.02c.185.204.37.426.52.667a4.66 4.66 0 0 1 .76 2.557c0 2.576-2.094 4.67-4.67 4.67s-4.67-2.094-4.67-4.67c-.02-2.168 1.482-4.002 3.52-4.52zm-18.233-.13c2.576 0 4.67 2.094 4.67 4.67s-2.094 4.67-4.67 4.67-4.67-2.094-4.67-4.67 2.094-4.67 4.67-4.67zm43.1 16.065c-.408 2.372-1.87 4.447-4.02 5.688-2.02 1.167-4.503 1.538-7.115 1.9-1.427.204-2.928.426-4.373.778-3.854.945-7.56 2.798-11.155 4.577-4.595 2.28-8.93 4.428-12.952 4.428-2.094 0-3.965-.593-5.744-1.834-4.076-2.816-3.873-8.097-3.4-10.988.445-2.705 1.686-5.244 2.872-7.67.074-.148.13-.278.204-.426.415.15.844.262 1.28.334-.704 3.928 1.297 7.986 5.188 9.987l.704.37.76-.278c3.243-1.15 6.244-3.02 8.894-5.522a24.892 24.892 0 0 0 3.854-4.577c.426.074.852.093 1.28.093 3.854 0 7.097-2.65 8.023-6.207h3.113a8.29 8.29 0 0 0 8.023 6.207 8.2 8.2 0 0 0 4.188-1.149c.482 1.4.63 2.835.37 4.28z"
-              fill="#99424f" />
-          </svg>Testing
+          ${{this.asset('jest-icon.svg')}}Testing
         </li>
         <li>
-          <svg class="icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-            viewBox="23 6 97 132">
-            <title>Firebase Logo</title>
-            <path fill="#ffa000"
-              d="M23.833 111.719 39.966 8.49a2.98 2.98 0 0 1 5.57-.946L62.22 38.662 68.87 26a2.98 2.98 0 0 1 5.273 0l45.023 85.719H23.833z" />
-            <path fill="#f57c00" d="m79.566 71.507-17.354-32.86-38.379 73.072 55.733-40.212z" />
-            <path fill="#ffca28"
-              d="m119.167 111.719-12.356-76.46a2.981 2.981 0 0 0-5.042-1.61l-77.936 78.069L66.957 135.9a8.937 8.937 0 0 0 8.714 0l43.496-24.183z" />
-            <path fill="#fff" fill-opacity=".2"
-              d="M106.81 35.258c-.186-1.098-.97-2-2.031-2.34s-2.223-.057-3.01.73L86.3 49.157 74.137 26a2.98 2.98 0 0 0-5.274 0l-6.65 12.662L45.53 7.545a2.98 2.98 0 0 0-5.571.953l-16.125 103.22h-.052l.052.06.425.209 77.488-77.578a2.98 2.98 0 0 1 5.05 1.609l12.251 75.775.12-.074-12.356-76.46zm-82.835 76.32 15.99-102.35a2.98 2.98 0 0 1 5.572-.953L62.22 39.392l6.65-12.662a2.98 2.98 0 0 1 5.273 0L86.06 49.395l-62.086 62.182z" />
-            <path fill="#a52714" opacity=".2"
-              d="M75.67 135.172a8.937 8.937 0 0 1-8.713 0l-43.02-24.116-.104.663 43.124 24.176a8.937 8.937 0 0 0 8.714 0l43.495-24.176-.111-.685-43.384 24.138z" />
-            <use fill="url(#a)" xlink:href="#b" />
-          </svg>Firebase
+          ${{this.asset('firebase-icon.svg')}}Firebase
         </li>
         <li>
-          <svg viewBox="0 0 256 248" class="icon" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid">
-            <title>Fastlane Logo</title>
-            <path d="M216.43 65.967c-10.7 0-20.401 4.255-27.523 11.156l-45.162-32.34c.282-1.18.447-2.406.447-3.674 0-8.741-7.086-15.828-15.828-15.828-8.741 0-15.828 7.087-15.828 15.828 0 8.742 7.087 15.828 15.828 15.828 3.06 0 5.909-.884 8.33-2.388L191.98 94.78c4.31-8.99 13.816-15.99 24.452-15.99 14.77 0 26.746 11.974 26.746 26.745 0 11.804-7.647 21.822-18.257 25.37l3.629 12.309c15.926-5.118 27.45-20.052 27.45-37.68 0-21.852-17.714-39.568-39.568-39.568" fill="#0A7BFF"/>
-            <path d="M89.565 27.53c-3.231 10.171-2.116 20.68 2.293 29.534L47.478 90.23a15.802 15.802 0 0 0-3.36-1.534c-8.31-2.64-17.186 1.957-19.825 10.267-2.64 8.31 1.957 17.187 10.266 19.826 8.31 2.64 17.187-1.956 19.827-10.266a15.69 15.69 0 0 0 .245-8.64l54.942-40.407c-7.245-6.812-11.03-17.963-7.818-28.074 4.46-14.042 19.46-21.81 33.503-17.349 11.22 3.564 18.435 13.86 18.605 25.017l12.797.267c-.056-16.685-10.773-32.152-27.53-37.475-20.774-6.599-42.966 4.892-49.565 25.667" fill="#EB3D00"/>
-            <path d="M16.264 134.488a39.444 39.444 0 0 0 28.644 7.258l17.508 52.324a15.55 15.55 0 0 0-2.499 2.67c-5.09 6.976-3.514 16.792 3.52 21.924 7.034 5.133 16.862 3.638 21.952-3.338 5.091-6.976 3.515-16.791-3.519-21.924a15.763 15.763 0 0 0-8.093-2.985L52.718 125.85c-8.703 4.644-20.428 4.649-28.987-1.596-11.885-8.673-14.548-25.26-5.947-37.047 6.874-9.42 18.86-12.925 29.463-9.528l4.248-11.953C35.7 60.459 17.73 65.61 7.465 79.676c-12.725 17.44-8.786 41.98 8.8 54.812" fill="#00BCD4"/>
-            <path d="M218.85 195.98c-3.26-10.09-10.25-17.936-18.96-22.54l16.896-52.49a15.818 15.818 0 0 0 3.62-.703c8.285-2.677 12.843-11.53 10.181-19.772-2.663-8.244-11.539-12.756-19.825-10.08-8.286 2.677-12.845 11.53-10.182 19.773a15.54 15.54 0 0 0 4.801 7.124l-21.294 64.454c9.835 1.31 19.366 8.13 22.606 18.16 4.5 13.93-3.203 28.889-17.204 33.412-11.189 3.615-23.015-.528-29.61-9.447l-10.563 7.192c9.703 13.45 27.371 19.746 44.08 14.348 20.714-6.692 32.11-28.823 25.453-49.431" fill="#86C351"/>
-            <path d="M96.273 238.32c8.584-6.28 13.87-15.388 15.533-25.105l55.212-.563a15.767 15.767 0 0 0 1.799 3.21c5.13 7.013 14.975 8.538 21.988 3.408 7.013-5.13 8.538-14.975 3.408-21.988-5.131-7.013-14.975-8.539-21.988-3.408a15.641 15.641 0 0 0-5.282 6.805l-67.966.173c1.819 9.742-1.698 20.937-10.231 27.18-11.85 8.67-28.485 6.092-37.155-5.758-6.928-9.47-6.673-21.995-.245-31.069L41.21 183.46c-9.772 13.453-10.252 32.2.093 46.34 12.827 17.533 37.438 21.347 54.97 8.52" fill="#9032E9"/>
-          </svg>Fastlane
+          ${{this.asset('fastlane-icon.svg')}}Fastlane
         </li>
         <li>
-          <svg viewBox="0 0 64 64" class="icon" xmlns="http://www.w3.org/2000/svg" fill="#6f468d" fill-rule="evenodd">
-            <title>Bitrise Logo</title>
-            <path d="M32 48.008a7.12 7.12 0 0 1-5.032-2.084 7.11 7.11 0 0 1-2.084-5.032h14.233a7.12 7.12 0 0 1-2.084 5.032A7.11 7.11 0 0 1 32 48.008zM16.095 32.102a4.4 4.4 0 0 0-3.11 1.288 4.39 4.39 0 0 0-1.285 3.1h8.788a4.394 4.394 0 0 0-4.394-4.394m31.843 0a4.395 4.395 0 0 0-4.393 4.393h8.787a4.395 4.395 0 0 0-4.394-4.393M32 11.168a2.72 2.72 0 1 0 0-5.445 2.722 2.722 0 0 0 0 5.444m26.356 40.515a4.89 4.89 0 0 1-3.445 1.638c-5.493.256-13.926.562-22.9.562s-17.418-.305-22.9-.562a4.894 4.894 0 0 1-3.445-1.64 4.875 4.875 0 0 1-1.238-3.596c.3-4.394.682-8.284 1.164-11.562.716-4.865 1.794-9.803 2.57-13.1a4.893 4.893 0 0 1 4.476-3.774c3.983-.248 10.58-.544 19.382-.544s15.4.296 19.382.544a4.884 4.884 0 0 1 4.475 3.774c.78 3.287 1.856 8.228 2.57 13.1.484 3.278.875 7.168 1.164 11.56a4.88 4.88 0 0 1-1.237 3.598m4.42-15.8c-.74-5.016-1.844-10.1-2.642-13.462-.928-4-4.38-6.9-8.48-7.147-4.045-.25-10.74-.552-19.656-.552s-15.6.3-19.653.552a9.257 9.257 0 0 0-8.48 7.147c-.8 3.37-1.904 8.443-2.644 13.462-.5 3.394-.904 7.402-1.2 11.914a9.24 9.24 0 0 0 2.345 6.812 9.25 9.25 0 0 0 6.517 3.101c5.54.26 14.046.568 23.116.568a496.07 496.07 0 0 0 23.116-.568 9.25 9.25 0 0 0 6.516-3.101 9.24 9.24 0 0 0 2.345-6.812c-.297-4.512-.7-8.52-1.2-11.914"/>
-          </svg>Bitrise
+          ${{this.asset('bitrise-logo.svg')}}Bitrise
         </li>
       </ul>
-      <span class="section-label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
-          <title>${this.LANGUAGES}</title>
-          <path
-            d="M448 164C459 164 468 172.1 468 184V188H528C539 188 548 196.1 548 208C548 219 539 228 528 228H526L524.4 232.5C515.5 256.1 501.9 279.1 484.7 297.9C485.6 298.4 486.5 298.1 487.4 299.5L506.3 310.8C515.8 316.5 518.8 328.8 513.1 338.3C507.5 347.8 495.2 350.8 485.7 345.1L466.8 333.8C462.4 331.1 457.1 328.3 453.7 325.3C443.2 332.8 431.8 339.3 419.8 344.7L416.1 346.3C406 350.8 394.2 346.2 389.7 336.1C385.2 326 389.8 314.2 399.9 309.7L403.5 308.1C409.9 305.2 416.1 301.1 422 298.3L409.9 286.1C402 278.3 402 265.7 409.9 257.9C417.7 250 430.3 250 438.1 257.9L452.7 272.4L453.3 272.1C465.7 259.9 475.8 244.7 483.1 227.1H376C364.1 227.1 356 219 356 207.1C356 196.1 364.1 187.1 376 187.1H428V183.1C428 172.1 436.1 163.1 448 163.1L448 164zM160 233.2L179 276H140.1L160 233.2zM0 128C0 92.65 28.65 64 64 64H576C611.3 64 640 92.65 640 128V384C640 419.3 611.3 448 576 448H64C28.65 448 0 419.3 0 384V128zM320 384H576V128H320V384zM178.3 175.9C175.1 168.7 167.9 164 160 164C152.1 164 144.9 168.7 141.7 175.9L77.72 319.9C73.24 329.1 77.78 341.8 87.88 346.3C97.97 350.8 109.8 346.2 114.3 336.1L123.2 315.1H196.8L205.7 336.1C210.2 346.2 222 350.8 232.1 346.3C242.2 341.8 246.8 329.1 242.3 319.9L178.3 175.9z" />
-        </svg>${this.LANGUAGES}</span>
+      <span class="section-label">${{this.asset('language-icon.svg')}}${{this.LANGUAGES}}</span>
       <ul class="section-content grid">
         <li>
-          <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="80 80 240 240">
-            <title>${this.LANGUAGE_GERMAN}</title>
-            <circle cx="200" cy="200" r="120" fill="#222" />
-            <circle cx="200" cy="200" r="80" fill="#fff" />
-          </svg>
-          <span>${this.LANGUAGE_GERMAN} <span class="language-level">${this.LANGUAGE_SKILL_NATIVE}</span></span>
+          ${{this.asset('german-language-level.svg')}}
+          <span>${{this.LANGUAGE_GERMAN}} <span class="language-level">${{this.LANGUAGE_SKILL_NATIVE}}</span></span>
         </li>
         <li>
-          <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="80 80 240 240">
-            <title>${this.LANGUAGE_ENGLISH}</title>
-            <circle cx="200" cy="200" r="120" fill="#ddd" />
-            <circle cx="200" cy="200" r="80" fill="#fff" />
-            <path d="M 200 100 A 100 100 270 1 1 100 200" fill="none" stroke="#222" stroke-width="40"
-              stroke-linecap="round" />
-          </svg>
-          <span>${this.LANGUAGE_ENGLISH} <span
-              class="language-level">${this.LANGUAGE_SKILL_HIGHLY_PROFICIENT}</span></span>
+          ${{this.asset('english-language-level.svg')}}
+          <span>${{this.LANGUAGE_ENGLISH}} <span
+              class="language-level">${{this.LANGUAGE_SKILL_HIGHLY_PROFICIENT}}</span></span>
         </li>
       </ul>
-      <span class="section-label"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
-          <title>${this.HOBBIES}</title>
-          <path
-            d="M447.1 224c0-12.56-4.781-25.13-14.35-34.76l-174.9-174.9C249.1 4.786 236.5 0 223.1 0C211.4 0 198.9 4.786 189.2 14.35L14.35 189.2C4.783 198.9-.0011 211.4-.0011 223.1c0 12.56 4.785 25.17 14.35 34.8l174.9 174.9c9.625 9.562 22.19 14.35 34.75 14.35s25.13-4.783 34.75-14.35l174.9-174.9C443.2 249.1 447.1 236.6 447.1 224zM96 248c-13.25 0-23.1-10.75-23.1-23.1s10.75-23.1 23.1-23.1S120 210.8 120 224S109.3 248 96 248zM224 376c-13.25 0-23.1-10.75-23.1-23.1s10.75-23.1 23.1-23.1s23.1 10.75 23.1 23.1S237.3 376 224 376zM224 248c-13.25 0-23.1-10.75-23.1-23.1s10.75-23.1 23.1-23.1S248 210.8 248 224S237.3 248 224 248zM224 120c-13.25 0-23.1-10.75-23.1-23.1s10.75-23.1 23.1-23.1s23.1 10.75 23.1 23.1S237.3 120 224 120zM352 248c-13.25 0-23.1-10.75-23.1-23.1s10.75-23.1 23.1-23.1s23.1 10.75 23.1 23.1S365.3 248 352 248zM591.1 192l-118.7 0c4.418 10.27 6.604 21.25 6.604 32.23c0 20.7-7.865 41.38-23.63 57.14l-136.2 136.2v46.37C320 490.5 341.5 512 368 512h223.1c26.5 0 47.1-21.5 47.1-47.1V240C639.1 213.5 618.5 192 591.1 192zM479.1 376c-13.25 0-23.1-10.75-23.1-23.1s10.75-23.1 23.1-23.1s23.1 10.75 23.1 23.1S493.2 376 479.1 376z" />
-        </svg>${this.HOBBIES}</span>
+      <span class="section-label">${{this.asset('hobbies-icon.svg')}}${{this.HOBBIES}}</span>
       <ul class="section-content grid">
-        <li><span class="emoji-icon">🚴</span><span>${this.CYCLING}</span></li>
-        <li><span class="emoji-icon">📖</span>${this.READING}</li>
-        <li><span class="emoji-icon">🪕</span>${this.MUSIC}</li>
-        <li><span class="emoji-icon">🏓</span>${this.TABLE_TENNIS}</li>
-        <li><span class="emoji-icon">🎮</span>${this.VIDEO_GAMES}</li>
+        <li><span class="emoji-icon">🚴</span><span>${{this.CYCLING}}</span></li>
+        <li><span class="emoji-icon">📖</span>${{this.READING}}</li>
+        <li><span class="emoji-icon">🪕</span>${{this.MUSIC}}</li>
+        <li><span class="emoji-icon">🏓</span>${{this.TABLE_TENNIS}}</li>
+        <li><span class="emoji-icon">🎮</span>${{this.VIDEO_GAMES}}</li>
       </ul>
     </section>
   </div>

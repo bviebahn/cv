@@ -1,0 +1,7 @@
+<svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="80 80 240 240">
+    <title>${{this.LANGUAGE_ENGLISH}}</title>
+    <circle cx="200" cy="200" r="120" fill="#ddd" />
+    <circle cx="200" cy="200" r="80" fill="#fff" />
+    <path d="M 200 100 A 100 100 270 1 1 100 200" fill="none" stroke="#222" stroke-width="40"
+        stroke-linecap="round" />
+</svg>

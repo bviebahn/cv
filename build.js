@@ -1,31 +1,44 @@
 const fs = require("fs");
 
-const template = fs.readFileSync(`${__dirname}/template.html`, {
-  encoding: "utf8",
-});
+const PAGE_TEMPLATE = fs.readFileSync(`${__dirname}/template.html`, "utf8");
 
-function translateTemplate(lang) {
-  const translations = JSON.parse(
-    fs.readFileSync(`${__dirname}/translations/${lang}.json`, {
-      encoding: "utf8",
-    })
-  );
-
+function translateTemplate(
+  lang,
+  template = PAGE_TEMPLATE,
+  translations = JSON.parse(
+    fs.readFileSync(`${__dirname}/translations/${lang}.json`, "utf8")
+  )
+) {
   let translatedTemplate = template;
-  const regexp = /\${(.+?)}/gm;
+  const regexp = /\${{(.+?)}}/gm;
   let match = regexp.exec(translatedTemplate);
+
+  const asset = (path, args) => {
+    return translateTemplate(
+      lang,
+      fs.readFileSync(`${__dirname}/assets/${path}`, "utf8"),
+      {
+        ...translations,
+        args,
+      }
+    );
+  };
+
   while (match !== null) {
     const [_, expression] = match;
     const { index } = match;
+
     const expressionValue = new Function(`return ${expression}`).bind({
       lang,
+      asset,
       ...translations,
     })();
+
     translatedTemplate = `${translatedTemplate.substring(
       0,
       index
     )}${expressionValue}${translatedTemplate.substring(
-      index + expression.length + 3
+      index + expression.length + "${{}}".length
     )}`;
 
     regexp.lastIndex = index;
